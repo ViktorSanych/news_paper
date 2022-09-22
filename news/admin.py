@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Author, Category, Post, Comment, PostCategory
 
+
 # admin.site.register(Author)
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
@@ -12,11 +13,18 @@ class CategoryAdmin(admin.ModelAdmin):
     pass
 
 
+# @admin.register(PostCategory)
+# class PostCategoryAdmin(admin.ModelAdmin):
+#     pass
+
+
 class PostCategoryInline(admin.TabularInline):
     model = PostCategory
 
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
+    pass
     inlines = [
         PostCategoryInline,
     ]
